@@ -230,5 +230,5 @@ int main(int argc,char** argv){
     float transitivity_ratio = 3*(float)(count_triangles)/(edge_couples);
     printf("Transitivity ratio : %f\n",transitivity_ratio);
 
-	return 0;
+    return 0;
 }
