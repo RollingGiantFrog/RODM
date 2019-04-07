@@ -39,7 +39,7 @@ int main(int argc,char** argv){
 
     free(P);
 
-    // Calcul des degrés entrants et sortants
+    // Calcul des degrÃ©s entrants et sortants
     unsigned long* in_degree = directed_node_degree(filename,h->n,h->m,false);
     write_indexed_int_array(deg_in_filename,in_degree,h->n,false);
     free(in_degree);
