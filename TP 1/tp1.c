@@ -151,29 +151,29 @@ int main(int argc,char** argv){
     char* degree_filename = "../outputs/degree/com-amazon.ungraph_deg.txt";
     char* distribution_filename = "../outputs/distribution/com-amazon.ungraph_distrib.txt";
 
-    // On récupère la taille du graphe (nombre de noeuds et d'arêtes)
+    // On rÃ©cupÃ¨re la taille du graphe (nombre de noeuds et d'arÃªtes)
     unsigned long nb_nodes, nb_edges;
     graph_size(filename, &nb_nodes, &nb_edges);
 
 	printf("Number of nodes : %lu\n", nb_nodes);
 	printf("Number of edges : %lu\n", nb_edges);
 
-    // On calcule le degré de chaque noeud
+    // On calcule le degrÃ© de chaque noeud
 	unsigned long *deg = node_degree(filename,nb_nodes,nb_edges);
 	write_indexed_int_array(degree_filename,deg,nb_nodes,true);
 
-    // On calcule la quantité Q_G
+    // On calcule la quantitÃ© Q_G
     unsigned long Q = prod_degrees(filename,degree_filename,nb_nodes);
 
 	printf("Q_G : %lu\n", Q);
 
-    // On calcule le degré de chaque noeud
+    // On calcule le degrÃ© de chaque noeud
 	degree_distribution(degree_filename,distribution_filename,nb_edges);
 
     // On charge l'adjacency array
     adjacency_array* g = read_adjacency_array(filename);
 
-    // On calcule les propriétés sur les composantes
+    // On calcule les propriÃ©tÃ©s sur les composantes
     unsigned long countcomponents = 0;
     unsigned long maxcomponent = 0;
     bool *visited = malloc(nb_nodes*sizeof(bool));
@@ -202,7 +202,7 @@ int main(int argc,char** argv){
     printf("Number of components : %lu\n",countcomponents);
     printf("Max component size : %lu\n",maxcomponent);
 
-    // On calcule une borne sur le diamiètre
+    // On calcule une borne sur le diamiÃ¨tre
     unsigned long depth;
     unsigned long furthest;
     unsigned long maxdepth = 0;
@@ -218,7 +218,7 @@ int main(int argc,char** argv){
 
     printf("Diameter (lower bound) : %lu\n",maxdepth);
 
-    // On calcule les propriétés sur la triangularité
+    // On calcule les propriÃ©tÃ©s sur la triangularitÃ©
     unsigned long* count_triangles_per_node;
     unsigned long count_triangles = triangle_list(g,count_triangles_per_node);
     printf("Number of triangles : %lu\n",count_triangles);
